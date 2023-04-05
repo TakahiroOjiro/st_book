@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./vueApp:/usr/src/app
+    command: sh -c "cd taskbox && yarn storybook"
+    ports:
+      - "6006:6006"
+      - "8080:8080"
